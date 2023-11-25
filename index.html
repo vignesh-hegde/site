@@ -3,23 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
 
-<style>@font-face {
-    font-family: 'retro_font';
-    src:url('https://drive.google.com/uc?export=view&id=1HXerHzud-sl9L7eQ_Uypyq4gmR0QwebX') format('truetype');
-}
+<style>
+
 body{
+    font-family: 'VT323', monospace;
     margin: 0;
     padding: 0;
-  }
-body{
-    font-family: 'retro_font';
     font-weight: 100;
     background-color: rgb(20, 20, 20);
-    color: rgb(0, 255, 51);
-    
+    color: rgb(0, 255, 51);    
 }
+
 #command{
+    font-size: 5rem;
     z-index: 3;
     position: absolute;
     margin-left: 15px;
@@ -35,29 +35,38 @@ body{
     bottom: 0;
     transition:all 2s;
 } 
-
+.title{
+    font-size: 5rem;
+}
 .header{
+    font-size: 3rem;
     font-weight: bold;
     color: rgb(20, 20, 20);
     background-color: rgb(0, 255, 51);
-    padding: 5px;
+    padding: 0px 15px 0px 15px;
     width: fit-content;
 }
 
 .details{
+    font-size: 2rem;
     line-height: 1.2em;
     margin-top: -10px;
     margin-left: 20px;
     font-weight: 100;
 }
 .details_list{
+    font-size: 2rem;
     list-style-type: none;
     line-height: 1.2em;
 
 }
+.details_link{
+    color: rgb(0, 255, 51);    
+}
 #content{
     transition: display 2s;
-    padding: 5px;
+    padding: 10px;
+    margin-left: 10px;
 }</style>
     <title>Document</title>
 </head>
@@ -67,7 +76,7 @@ body{
     <h2 id="command" >_</h2>
         
     <div id="content" style="display: none;">    
-        <h1>Vignesh Hegde</h1>
+        <h1 class="title" >vignesh_hegde(2000)</h1>
         <div id="basic_details">
             <p class="header">
                 WHO AM I  
@@ -78,7 +87,7 @@ body{
             </p>
         </div>
     
-        <div id="basic_details">
+        <div id="my_work">
             <p class="header">
                 My Works  
             </p>
@@ -90,13 +99,37 @@ body{
                 </ul>
             </p>
         </div>
+
+        <div id="blogs">
+            <p class="header">
+                Blogs  
+            </p>
+            <p class="details">
+                <ul class ="details_list">
+                    <li>-- Work 1</li>
+                    <li>-- Work 2</li>
+                    <li>-- Work 3</li>
+                </ul>
+            </p>
+        </div>
     
+        <div id="Find me @">
+            <p class="header">
+                Contact Me  
+            </p>
+            <p class="details">
+                <ul class ="details_list">
+                    <li>-- <a class="details_link" href="https://mail.google.com/mail/u/0/?fs=1&amp;to=vignesh4a@gmail.com&amp;tf=cm" target="_blank"> Electronic Mail </a></li>
+                    <li>-- <a class="details_link" href="https://www.google.com" target="_blank"> Linkedin </a></li>
+                    <li>-- <a class="details_link" href="" target="_blank"> Github </a></li>
+                    <li>-- <a class="details_link" href="" target="_blank"> Instagram </a></li>
+                </ul>
+            </p>
+        </div>
     </div>
-    
-    
     </body>
 
-<stript>
+<script>
 var iterator = 0;
 var txt = 'man vignesh_hedge ';
 var blink_curser = "_"
