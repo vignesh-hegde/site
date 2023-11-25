@@ -3,7 +3,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://raw.githubusercontent.com/vignesh-hegde/webpage/main/My_Website/styles/index.css">
+
+<style>@font-face {
+    font-family: 'retro_font';
+    src:url('https://drive.google.com/uc?export=view&id=1HXerHzud-sl9L7eQ_Uypyq4gmR0QwebX') format('truetype');
+}
+body{
+    margin: 0;
+    padding: 0;
+  }
+body{
+    font-family: 'retro_font';
+    font-weight: 100;
+    background-color: rgb(20, 20, 20);
+    color: rgb(0, 255, 51);
+    
+}
+#command{
+    z-index: 3;
+    position: absolute;
+    margin-left: 15px;
+}
+
+#remove{
+    z-index: 2;
+    background-color: rgb(20, 20, 20);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    margin: 0px;
+    bottom: 0;
+    transition:all 2s;
+} 
+
+.header{
+    font-weight: bold;
+    color: rgb(20, 20, 20);
+    background-color: rgb(0, 255, 51);
+    padding: 5px;
+    width: fit-content;
+}
+
+.details{
+    line-height: 1.2em;
+    margin-top: -10px;
+    margin-left: 20px;
+    font-weight: 100;
+}
+.details_list{
+    list-style-type: none;
+    line-height: 1.2em;
+
+}
+#content{
+    transition: display 2s;
+    padding: 5px;
+}</style>
     <title>Document</title>
 </head>
 <body>
@@ -40,7 +95,88 @@
     
     
     </body>
-<script src="https://raw.githubusercontent.com/vignesh-hegde/webpage/main/My_Website/scripts/index.js"></script>
+
+<stript>
+var iterator = 0;
+var txt = 'man vignesh_hedge ';
+var blink_curser = "_"
+var typewriter_container = document.getElementById("command");
+var prev_content = ""
+
+
+window.onload = function()
+{
+    typewriter_container.innerHTML = " ";
+    blink_start();
+    // dispay_content();
+
+}
+
+function blink_start(){
+    if(iterator < 6)
+    {
+        blink_curser = ( blink_curser == ">  " ) ? "> _" : ">  ";
+        typewriter_container.innerHTML  = blink_curser ;
+        iterator++;
+       setTimeout(blink_start, 400);
+    }
+    else
+    {
+        iterator = 0;
+        typeWriter();
+    }
+}
+
+
+function typeWriter() {
+  if (iterator < txt.length) {
+
+    y = 7 * Math.floor(Math.random() * 10) + 3;
+
+    if (y <= 3*7 ){
+        y += 7*20;
+    }
+    
+    prev_content = typewriter_container.innerHTML.slice(0, typewriter_container.innerHTML.length - 1 );
+    
+    typewriter_container.innerHTML = prev_content + txt.charAt(iterator) + "_";
+    
+    iterator++;
+    
+    setTimeout(typeWriter, y);
+  }
+  else{
+    iterator = 0;
+    blink_end();
+  }
+}
+
+function blink_end() {
+    if(iterator < 4){
+        blink_curser = ( blink_curser == " " ) ? "_" : " ";
+        typewriter_container.innerHTML  = prev_content + blink_curser ;
+
+        iterator++;
+
+        setTimeout(blink_end, 400);
+    }
+    else{
+        typewriter_container.innerHTML = ""
+        dispay_content();
+    }
+}
+
+function dispay_content(){
+    document.getElementById('content').style.display = "block";
+    document.getElementById('remove').style.height = "0px";
+    // document.getElementById('remove').style.marginTop = "100%";
+    // document.getElementById('remove').style.display = "none";
+    
+    
+}
+
+
+</script>
 </html>
 
 
