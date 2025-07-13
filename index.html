@@ -257,22 +257,13 @@ function blink_start(){
 
 function typeWriter() {
   if (iterator < txt.length) {
-
     y = 7 * Math.floor(Math.random() * 10) + 3;
-
-    if (y <= 3*7 ){
-        y += 7*20;
-    }
-    y = 0;
+    if (y <= 3*7 ) { y += 7*20;}
     prev_content = typewriter_container.innerHTML.slice(0, typewriter_container.innerHTML.length - 1 );
-    
     typewriter_container.innerHTML = prev_content + txt.charAt(iterator) + "_";
-    
     iterator++;
-    
     setTimeout(typeWriter, y);
-  }
-  else{
+  }else{
     iterator = 0;
     blink_end();
   }
