@@ -8,46 +8,41 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0F4XJPELR1"></script>
     <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-0F4XJPELR1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0F4XJPELR1');
     </script>
     <style>
-        
-        body{
-            font-family: 'VT323', monospace;
-            margin: 0;
-            padding: 0;
-            font-weight: 100;
+    body{
+    font-family: 'VT323', monospace;
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
     background-color: #1e1e1e;
     color: rgb(0, 255, 51);    
-}
+    }
+    #command{
+        font-size: calc(2em + 1vw);
+        z-index: 3;
+        position: absolute;
+        margin-left: 15px;
+    }
 
-#command{
-    font-size: calc(2em + 1vw);
-    z-index: 3;
-    position: absolute;
-    margin-left: 15px;
-}
-
-#remove{
-    z-index: 2;
-    background-color: #1e1e1e;
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    margin: 0px;
-    bottom: 0;
-    transition:all 2s;
-} 
-.title{
-    font-size: calc(2em + 1vw);
-}
+    #remove{
+        z-index: 2;
+        background-color: #1e1e1e;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        margin: 0px;
+        bottom: 0;
+        transition:all 2s;
+    } 
+    .title{
+        font-size: calc(2em + 1vw);
+    }
 .header{
     font-size: calc(1.5em + 1vw);
     font-weight: bold;
@@ -56,7 +51,6 @@
     padding: 0px 15px 0px 15px;
     width: fit-content;
 }
-
 .details{
     font-size: calc(1em + 1vw);
     line-height: 1.2em;
@@ -65,7 +59,6 @@
     font-weight: 100;
     /* text-align: justify; */
 }
-
 .details_list{
     font-size: calc(1em + 1vw);
     line-height: 1.2em;
@@ -97,11 +90,9 @@
 .links{
     color: rgb(0, 255, 51); 
 }
-
 .blink_me {
   animation: blinker 1s linear infinite;
 }
-
 .footer_div{
     background-color: rgb(0, 255, 51); 
     padding-top: 0.75em;
@@ -130,7 +121,14 @@
     opacity: 0;
   }
 }
+    .active, .collapsible:hover {
+    background-color: #555;
+    }
 
+    .s_media_links {
+    display: none;
+    overflow: hidden;
+    }
 </style>
 <title>vignesh_hedge</title>
 </head>
@@ -173,7 +171,7 @@
             
             <div id="my_work">
                 <p class="foot_header">
-                    <a href="https://github.com/vignesh-hegde" class="foot_link">
+                    <a href="" class="foot_link">
                         <span class="blink_me"> > </span>
                         Projects & Experiments (and it works, mostly)
                         <span class="blink_me"> < </span>
@@ -190,7 +188,11 @@
                     </a>
                 </p>
             </div>
-            
+            <!-- <p>A Collapsible:</p>
+<button type="button" class="collapsible">Open Collapsible</button>
+<div class="content">
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+</div> -->
             <div id="captures">
                 <p class="foot_header">
                     <a href="" class="foot_link">
@@ -202,11 +204,18 @@
             </div>
             <div class="appear" id="Find me @">
                 <p class="foot_header">
-                    <a href="" class="foot_link">
+                    <button type="button" class="collapsible foot_link" style="background: transparent; border: none; ">
                         <span class="blink_me"> > </span> 
-                        Reach Out, I Don’t Bite ;-)
+                        Open Collapsible
                         <span class="blink_me"> < </span>
-                    </a>
+                    </button>
+                    <div class="s_media_links foot_header">
+                        <div style="display: flex; justify-content: space-around; align-items: center;">
+                            <a href="https://www.instagram.com/_vignesh_hegde_/" class="foot_link" > Instagram </a>   
+                            <a href="https://www.linkedin.com/in/vignesh-hegde/" class="foot_link" > Linkedin </a>
+                            <!-- <a href="" class="foot_link" > Facebook </a> -->
+                        </div>
+                    </div>
                 </p>
             </div>
         </div>
@@ -254,7 +263,7 @@ function typeWriter() {
     if (y <= 3*7 ){
         y += 7*20;
     }
-    
+    y = 0;
     prev_content = typewriter_container.innerHTML.slice(0, typewriter_container.innerHTML.length - 1 );
     
     typewriter_container.innerHTML = prev_content + txt.charAt(iterator) + "_";
@@ -287,13 +296,18 @@ function blink_end() {
 function dispay_content(){
     document.getElementById('content').style.display = "block";
     document.getElementById('remove').style.height = "0px";
-    // document.getElementById('remove').style.marginTop = "100%";
-    // document.getElementById('remove').style.display = "none";
-    
-    
 }
-
-
+var coll = document.getElementsByClassName("collapsible")[0];
+console.log(coll);
+coll.addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = document.getElementsByClassName("s_media_links")[0]
+    if (content.style.display === "block") {
+      content.style.display = "none";
+    } else {
+      content.style.display = "block";
+    }
+  });
 </script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous"></script>
 </html>
